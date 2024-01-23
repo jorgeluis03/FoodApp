@@ -2,6 +2,7 @@ package com.example.foodapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -23,11 +24,15 @@ public class IntroActivity extends BaseActivity {
 
     private void setVariable() {
         binding.loginBtn.setOnClickListener(view -> {
-
+            if(auth.getCurrentUser()!=null){
+                startActivity(new Intent(this,MainActivity.class));
+            }else {
+                startActivity(new Intent(this, LoginActivity.class));
+            }
         });
 
         binding.signupBtn.setOnClickListener(view -> {
-
+            startActivity(new Intent(this,SignupActivity.class));
         });
     }
 }
