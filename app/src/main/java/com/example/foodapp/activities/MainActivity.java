@@ -52,6 +52,15 @@ public class MainActivity extends BaseActivity {
             startActivity(intent);
         });
 
+        binding.searchBtn.setOnClickListener(v -> {
+            String textSearch = binding.searchEdt.getText().toString();
+            if(!textSearch.isEmpty()){
+                Intent intent = new Intent(MainActivity.this,ListFoodsActivity.class);
+                intent.putExtra("searchTxt",textSearch);
+                intent.putExtra("isSearch",true);
+                startActivity(intent);
+            }
+        });
 
     }
 
