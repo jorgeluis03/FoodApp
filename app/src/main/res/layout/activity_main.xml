@@ -96,6 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
+                        android:layout_marginEnd="8dp"
                         app:srcCompat="@drawable/search_icon"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -141,7 +142,8 @@
                         android:layout_weight="1"
                         android:layout_marginStart="4dp"
                         android:layout_gravity="center"
-                        android:background="@null"/>
+                        android:background="@null"
+                        android:layout_marginEnd="3dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -166,7 +168,8 @@
                         android:layout_weight="1"
                         android:layout_marginStart="4dp"
                         android:layout_gravity="center"
-                        android:background="@null"/>
+                        android:background="@null"
+                        android:layout_marginEnd="3dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -191,7 +194,8 @@
                         android:layout_weight="1"
                         android:layout_marginStart="4dp"
                         android:layout_gravity="center"
-                        android:background="@null"/>
+                        android:background="@null"
+                        android:layout_marginEnd="3dp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -225,13 +229,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="wrap_content"
+                android:minHeight="300dp">
 
                 <ProgressBar
                     android:id="@+id/progressBarBestFood"
                     style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:indeterminateTint="@color/red"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -241,6 +247,9 @@
                     android:id="@+id/recyclerViewBestFood"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -251,6 +260,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:text="Elije una Categoría"
                 android:textColor="@color/blue_gray"
@@ -264,8 +274,9 @@
                 <ProgressBar
                     android:id="@+id/progressBar2"
                     style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:indeterminateTint="@color/red"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -275,6 +286,8 @@
                     android:id="@+id/recyclerView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
