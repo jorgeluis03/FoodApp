@@ -13,7 +13,7 @@ import com.example.foodapp.databinding.ActivityDetailBinding;
 import com.example.foodapp.domain.Foods;
 import com.example.foodapp.helper.ManagmentCart;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends BaseActivity {
     ActivityDetailBinding binding;
     private Foods food;
     private int num=1;
@@ -50,14 +50,14 @@ public class DetailActivity extends AppCompatActivity {
 
         binding.plusBtn.setOnClickListener(v -> {
             num = num+1;
-            binding.numTxt.setText(num);
+            binding.numTxt.setText(num+"");
             binding.totalPriceTxt.setText("$"+(num*food.getPrice()));
         });
 
         binding.removeBtn.setOnClickListener(v -> {
             if(num>1){
                 num = num-1;
-                binding.numTxt.setText(num);
+                binding.numTxt.setText(num+"");
                 binding.totalPriceTxt.setText("$"+(num*food.getPrice()));
             }
         });
