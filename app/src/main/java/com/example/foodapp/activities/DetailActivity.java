@@ -11,11 +11,13 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.foodapp.R;
 import com.example.foodapp.databinding.ActivityDetailBinding;
 import com.example.foodapp.domain.Foods;
+import com.example.foodapp.helper.ManagmentCart;
 
 public class DetailActivity extends AppCompatActivity {
     ActivityDetailBinding binding;
     private Foods food;
     private int num=1;
+    private ManagmentCart managmentCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void setVariable() {
+        managmentCart = new ManagmentCart(DetailActivity.this);
+
         binding.backBtn.setOnClickListener(v -> finish());
         Glide.with(DetailActivity.this)
                 .load(food.getImagePath())
@@ -41,6 +45,27 @@ public class DetailActivity extends AppCompatActivity {
         binding.califiTxt.setText(food.getStar()+" calif.");
         binding.ratingBar.setRating((float) food.getStar());
         binding.totalPriceTxt.setText("$"+num*food.getPrice());
+        //*************** set texts *************
+
+
+        binding.plusBtn.setOnClickListener(v -> {
+            num = num+1;
+            binding.numTxt.setText(num);
+            binding.totalPriceTxt.setText("$"+(num*food.getPrice()));
+        });
+
+        binding.removeBtn.setOnClickListener(v -> {
+            if(num>1){
+                num = num-1;
+                binding.numTxt.setText(num);
+                binding.totalPriceTxt.setText("$"+(num*food.getPrice()));
+            }
+        });
+
+        binding.addBtn.setOnClickListener(v -> {
+            food.setNumberInCart(num);
+            managmentCart.insertFood(food);
+        });
     }
 
     private void getIntentExtras() {
